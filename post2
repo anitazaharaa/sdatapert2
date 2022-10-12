@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+
+class dataktp{
+	friend ostream& operator<<(ostream&, const dataktp&);
+	friend istream& operator>>(istream&, dataktp&);
+	
+	public :
+		void proses();
+		
+	private :
+		int i, jumlah, cari, ketemu, pilih;
+		char jawab;
+};
+
+typedef struct{
+	string nik;
+	int ttl, alamat, del;
+	char nama[50], goldar, kerja[10], status[10], warga[10], agama[10];
+}
+
+ktp;
+ktp isi[50];
+
+typedef struct {
+	char tempat[20], bulan[10];
+	int tgl, tahun;
+}
+
+ttgllahir;
+ttgllahir ttl[50];
+
+typedef struct {
+	int rt, rw, kodepos;
+	char desa[50], kota[50], kecamatan[50];
+}
+
+alamat;
+alamat almt[50];
+
+void dataktp::proses(){
+	cout<<"---INPUT DATA PENDUDUK---"<<endl<<endl;
+		cout<<"NIK\t\t\t:";
+			cin>>isi[i].nik;
+	cout<<"Nama\t\t\t:"; fflush(stdin);
+		cin.get(isi[i].nama,30);
+	cout<<"Tempat Tanggal Lahir "<<endl;
+	cout<<"\tTempat\t\t: ";fflush(stdin);
+		cin.get(ttl[i].tempat,50);
+	cout<<"\tTanggal\t\t: ";
+		cin>>ttl[i].tgl;
+	cout<<"\tBulan\t\t:";
+		cin>>ttl[i].bulan;
+	cout<<"\tTahun\t\t: ";
+		cin>>ttl[i].tahun;
+	cout<<"Jenis Kelamin(L/P)\t: ";
+		cin>>isi[i].goldar;
+	cout<<"Alamat "<<endl;
+	cout<<"\tRT\t\t: ";
+		cin>>almt[i].rt;
+	cout<<"\tRW\t\t: ";
+		cin>>almt[i].rw;
+	cout<<"\tKel/Desa\t: ";fflush(stdin);
+		cin.get(almt[i].desa,20);
+	cout<<"\tKecamatan\t: ";fflush(stdin);
+		cin.get(almt[i].kecamatan,20);
+	cout<<"\tKota\t\t: ";fflush(stdin);
+		cin.get(almt[i].kota,20);
+	cout<<"\tKode pos\t: ";
+		cin>>almt[i].kodepos;
+	cout<<"Agama\t\t\t: ";fflush(stdin);
+		cin.get(isi[i].agama,10);
+	cout<<"Status(kawin/belum)\t: ";fflush(stdin);
+		cin.get(isi[i].status,10);
+	cout<<"Pekerjaan\t\t: ";fflush(stdin);
+		cin.get(isi[i].kerja,21);
+	cout<<"Kewarganegaraan\t\t: ";fflush(stdin);
+		cin.get(isi[i].warga,10);
+	cout<<endl<<endl;
+		isi[i].del = 0;
+}
+int main(){
+	dataktp x;
+	x.proses();
+}
